@@ -122,8 +122,6 @@ public class LecturaTextoGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    
     private void botonAbrirArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAbrirArchivoActionPerformed
         JFileChooser selectorFichero = new JFileChooser();
         int result = selectorFichero.showOpenDialog(this);
