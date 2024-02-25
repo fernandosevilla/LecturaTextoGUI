@@ -40,7 +40,6 @@ public class LecturaTextoGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaTexto = new javax.swing.JTextArea();
@@ -168,17 +167,18 @@ public class LecturaTextoGUI extends javax.swing.JFrame {
         labelRutaAbsoluta.setText(file.getAbsolutePath());
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            StringBuilder contenidoActual = new StringBuilder(areaTexto.getText());
-            int numeroDeLinea = 1;
+            StringBuilder contenido = new StringBuilder(areaTexto.getText());
+            int numeroDeLinea = areaTexto.getLineCount();
 
             String linea;
             
             while ((linea = reader.readLine()) != null) {
-                contenidoActual.append(numeroDeLinea).append(": ").append(linea).append("\n") ;
+                contenido.append(numeroDeLinea).append(":  ").append(linea).append("\n");
                 numeroDeLinea++;
+
             }
 
-            areaTexto.setText(contenidoActual.toString());
+            areaTexto.setText(contenido.toString());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error leyendo fichero: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
@@ -227,7 +227,6 @@ public class LecturaTextoGUI extends javax.swing.JFrame {
     private javax.swing.JButton botonBorrar;
     private javax.swing.JButton botonGuardarNuevoArchivo;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelRutaAbsoluta;
     // End of variables declaration//GEN-END:variables
